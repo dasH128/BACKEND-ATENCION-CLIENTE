@@ -8,6 +8,7 @@ import { PORT, MONGO_URI } from "./config/config";
 import indexRoutes from "./config/routes/index";
 import AuthRoutes from "./config/routes/AuthRoutes";
 import WorkerRoutes from "./config/routes/WorkerRoutes";
+import PlanningRoutes from "./config/routes/PlanningRoutes";
 
 export class Server {
     public app: express.Application;
@@ -41,6 +42,7 @@ export class Server {
         this.app.use(indexRoutes);
         this.app.use("/api/auth", AuthRoutes);
         this.app.use("/api/worker", WorkerRoutes);
+        this.app.use("/api/planning", PlanningRoutes);
     };
     start = () => {
         this.app.listen(this.app.get("port"), () => {

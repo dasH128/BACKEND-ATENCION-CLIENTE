@@ -37,7 +37,8 @@ export class UserRepository {
     buscarPorUserName = async (username: String) => {
         var resultado = null
         try {
-            resultado = await User.findOne({ 'username': username }).exec()
+            // resultado = await User.findOne({ 'username': username }).exec()
+            resultado = await User.findOne({ 'email': username }).exec()
         } catch (error) {
             console.log(UserRepository.LOG, error)
         }

@@ -12,7 +12,7 @@ export class AuthController {
     login = async (req: Request, res: Response) => {
         var user: IUser = <IUser>req.body
         console.log(user)
-        var userDB = await this.userRepository.buscarPorUserName(user.username)
+        var userDB = await this.userRepository.buscarPorUserName(user.email)
         if (!userDB) return res.status(404).json({ auth: false, message: "El username no existe" })
 
         var validate = await userDB.compararPassword(user.password)
