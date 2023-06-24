@@ -1,7 +1,8 @@
 
 export interface IWorker {
-    name: string,
-    lastname: string,
+    nombre: string,
+    apellido: string,
+    dni: string,
     email: string,
 
 }

@@ -3,8 +3,9 @@ import { Schema, model } from 'mongoose'
 import { IWorker } from './interface/IWorker'
 
 var workerSchema = new Schema({
-    name: { type: String, required: true },
-    lastname: { type: String, required: false },
+    nombre: { type: String, required: true },
+    apellido: { type: String, required: true },
+    dni: { type: String, required: true },
     email: { type: String, required: true },
 })
 
