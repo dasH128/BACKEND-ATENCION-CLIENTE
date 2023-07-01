@@ -13,6 +13,8 @@ class PlanningRoutes {
     routes = () => {
         this.router.get('/', this.planningController.listar)
         this.router.post('/', this.planningController.registrate)
+        this.router.put('/:id/programing', this.planningController.registrate)
+
     }
 }
 const planningRoutes = new PlanningRoutes()

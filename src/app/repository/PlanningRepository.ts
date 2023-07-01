@@ -22,10 +22,10 @@ export class PlanningRepository {
     }
     // actualizar = async (entity: IP) => false
     // eliminar = async (id: ObjectId) => false
-    listar = async (estado: string) => {
+    listar = async (estado: boolean = true) => {
         var resultados = {}
         try {
-            resultados = await Planning.find().exec()
+            resultados = await Planning.find({estado:estado}).exec()
         } catch (error) {
             console.log(PlanningRepository.LOG, error)
         }

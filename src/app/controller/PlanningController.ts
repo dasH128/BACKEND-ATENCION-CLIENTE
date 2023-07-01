@@ -20,10 +20,12 @@ export class PlanningController {
     }
 
     listar = async (req: Request, res: Response) => {
-        var estado: any = req.query.estado ?? '';
+        var estado: any = req.query.estado ?? 'true';
         console.log('es ', estado);
-        var respuesta = await this.planningRepository.listar(estado);
+        var respuesta = await this.planningRepository.listar(Boolean(JSON.parse(estado)));
         return res.json({ status: res.statusCode, operation: respuesta })
     }
-
+    programation = async (req: Request, res: Response) => {
+        return res.json({ status: res.statusCode, operation: true })
+    }
 }
