@@ -24,4 +24,18 @@ export class WorkerController {
         return res.json({ status: res.statusCode, operation: respuesta })
     }
 
+    listarByIsla = async (req: Request, res: Response) => {
+
+        var filter: any = req.query.filter ?? null;
+        console.log('filter ', filter);
+        if (filter == 'TODOS') {
+
+            var respuesta = await this.workerRepository.listar();
+            return res.json({ status: res.statusCode, operation: respuesta })
+        } else {
+
+            var respuesta = await this.workerRepository.listarByIsla(filter);
+            return res.json({ status: res.statusCode, operation: respuesta })
+        }
+    }
 }

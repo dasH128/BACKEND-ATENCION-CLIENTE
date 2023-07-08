@@ -12,6 +12,7 @@ class WorkerRoutes {
 
     routes = () => {
         this.router.get('/', this.workerController.listar)
+        this.router.get('/isla/', this.workerController.listarByIsla)
         this.router.post('/', this.workerController.registrate)
     }
 }

@@ -31,6 +31,15 @@ export class WorkerRepository {
         }
         return resultados;
     }
+    listarByIsla = async (filter: String) => {
+        var resultados = {}
+        try {
+            resultados = await Worker.find({ 'isla': filter }).exec()
+        } catch (error) {
+            console.log(WorkerRepository.LOG, error)
+        }
+        return resultados;
+    }
 
     listarPorId = async (id: ObjectId) => {
         var resultado = null

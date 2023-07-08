@@ -7,6 +7,7 @@ var workerSchema = new Schema({
     apellido: { type: String, required: true },
     dni: { type: String, required: true },
     correo: { type: String, required: true },
+    isla: { type: String, required: false },
 })
 
 
