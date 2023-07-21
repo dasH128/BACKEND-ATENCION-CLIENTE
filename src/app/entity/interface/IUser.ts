@@ -1,12 +1,13 @@
-import {Document} from 'mongoose'
+import { Document } from 'mongoose'
 
-export interface IUser extends Document{
+export interface IUser extends Document {
     name: string,
-    lastname : string,
+    rol: string,
+    lastname: string,
     username: string,
     email: string,
     password: string,
-
+    activo: boolean,
     encriptarPassword(password: string): Promise<string>,
     compararPassword(password: string): Promise<boolean>
 }

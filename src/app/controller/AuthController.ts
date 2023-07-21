@@ -13,10 +13,10 @@ export class AuthController {
         var user: IUser = <IUser>req.body
         console.log(user)
         var userDB = await this.userRepository.buscarPorUserName(user.email)
-        if (!userDB) return res.status(404).json({ auth: false, message: "El username no existe" })
+        if (!userDB) return res.json({ auth: false, message: "El username no existe" })
 
         var validate = await userDB.compararPassword(user.password)
-        if (!validate) return res.status(401).json({ auth: false, message: "Constraseña incorrecta" })
+        if (!validate) return res.json({ auth: false, message: "Constraseña incorrecta" })
 
         const token = await crearToken(userDB)
         return res.json({ auth: true, token })
