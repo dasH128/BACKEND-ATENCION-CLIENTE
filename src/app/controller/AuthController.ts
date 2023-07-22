@@ -19,7 +19,7 @@ export class AuthController {
         if (!validate) return res.json({ auth: false, message: "Constraseña incorrecta" })
 
         const token = await crearToken(userDB)
-        return res.json({ auth: true, token })
+        return res.json({ auth: true, token, rol: userDB.rol })
     }
 
     registrate = async (req: Request, res: Response) => {
