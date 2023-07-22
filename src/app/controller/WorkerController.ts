@@ -12,11 +12,12 @@ export class WorkerController {
 
     registrate = async (req: Request, res: Response) => {
         var worker: IWorker = <IWorker>req.body
-
+        
         var respuesta = await this.workerRepository.registrar(worker)
-        if (!respuesta) return res.json({ status: res.statusCode, operation: respuesta, message: 'Error al crear el usuario' })
+        // if (!respuesta) return res.json({ status: res.statusCode, operation: respuesta, message: 'Error al crear el usuario' })
+        if (respuesta != '') return res.json({ status: res.statusCode, operation: false, message: respuesta })
 
-        return res.json({ status: res.statusCode, operation: respuesta })
+        return res.json({ status: res.statusCode, operation: true })
     }
 
     listar = async (req: Request, res: Response) => {
